@@ -72,7 +72,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* Animated mesh background */
+/* Static mesh background */
 body::before {
 	content: '';
 	position: fixed;
@@ -82,10 +82,10 @@ body::before {
 	height: 100%;
 	background: var(--gradient-mesh);
 	z-index: -2;
-	animation: meshFloat 20s ease-in-out infinite;
+	opacity: 0.5;
 }
 
-/* Floating particles */
+/* Static floating particles */
 body::after {
 	content: '';
 	position: fixed;
@@ -101,31 +101,7 @@ body::after {
 	background-repeat: repeat;
 	background-size: 150px 100px;
 	z-index: -1;
-	animation: particleFloat 30s linear infinite;
-}
-
-@keyframes meshFloat {
-	0%, 100% {
-		transform: translate(0, 0) scale(1);
-		opacity: 0.4;
-	}
-	33% {
-		transform: translate(30px, -30px) scale(1.1);
-		opacity: 0.6;
-	}
-	66% {
-		transform: translate(-20px, 20px) scale(0.9);
-		opacity: 0.5;
-	}
-}
-
-@keyframes particleFloat {
-	0% {
-		transform: translateY(0);
-	}
-	100% {
-		transform: translateY(-100px);
-	}
+	opacity: 0.3;
 }
 
 .container {
@@ -140,7 +116,7 @@ body::after {
 	margin: 0 auto;
 }
 
-/* Decorative elements */
+/* Static decorative elements */
 .container::before {
 	content: '';
 	position: absolute;
@@ -152,7 +128,6 @@ body::after {
 	border-radius: 50%;
 	filter: blur(100px);
 	opacity: 0.1;
-	animation: float 8s ease-in-out infinite;
 }
 
 .container::after {
@@ -166,16 +141,6 @@ body::after {
 	border-radius: 50%;
 	filter: blur(120px);
 	opacity: 0.08;
-	animation: float 10s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-	0%, 100% {
-		transform: translateY(0) rotate(0deg);
-	}
-	50% {
-		transform: translateY(-20px) rotate(180deg);
-	}
 }
 
 /* Main heading with enhanced typography */
@@ -207,26 +172,14 @@ h1::before {
 	background: var(--gradient-primary);
 	border-radius: 50%;
 	filter: blur(60px);
-	opacity: 0.1;
+	opacity: 0.15;
 	z-index: -1;
-	animation: titleGlow 4s ease-in-out infinite alternate;
 }
 
 @keyframes titleReveal {
 	to {
 		opacity: 1;
 		transform: translateY(0);
-	}
-}
-
-@keyframes titleGlow {
-	from {
-		opacity: 0.1;
-		transform: translate(-50%, -50%) scale(1);
-	}
-	to {
-		opacity: 0.2;
-		transform: translate(-50%, -50%) scale(1.1);
 	}
 }
 
